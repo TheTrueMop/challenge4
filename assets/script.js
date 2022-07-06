@@ -146,11 +146,14 @@ startButton.onclick = function() {
 submitButton.onclick = function() {
   check();
   undraw();
-  console.log(data.length);
+  //console.log(data.length);
   // below is the end of the game it stores the score in local which will be used to display the highscore.
   if(count == data.length) {
     let user = prompt("Enter your name");
     localStorage.setItem(user, time);
+    newText = document.createElement("li");
+    newText.innerHTML = (user + ": " + time);
+    highscore.children[0].appendChild(newText);
     switchScreen(highscore);
   }else {
     draw();
